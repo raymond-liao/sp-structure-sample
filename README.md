@@ -30,4 +30,6 @@ $ pipenv install
 $ python main.py
 ```
 
+## License
 
+`sp-structure-sample` is avaliable under the MIT license. See the [LICENSE](https://github.com/gaoshanyu/sp-structure-sample/master/LICENSE) file for more info.
