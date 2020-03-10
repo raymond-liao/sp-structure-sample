@@ -1,5 +1,5 @@
 # sp-structure-sample
-Web UI Test structure sample of [chromium](https://www.chromium.org/) and [pytest](https://docs.pytest.org/en/latest/)
+Automation Web UI Test structure sample of [chromium](https://www.chromium.org/) and [pytest](https://docs.pytest.org/en/latest/)
 
 
 ## Environment
