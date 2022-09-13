@@ -37,7 +37,7 @@ class BasePage:
     # file_name: the name of the screenshot file
     def save_web_screenshot(self, file_name):
         now = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-        filepath = "./screenshots/{}_{}.png".format(file_name, now)
+        filepath = "./reports/screenshots/{}_{}.png".format(file_name, now)
         try:
             self.driver.save_screenshot(filepath)
             logging.info("save_web_screenshot success: {}".format(filepath))
@@ -63,5 +63,45 @@ class BasePage:
             # element.submit()
         except Exception as error:
             logging.exception("Submit failed with an exception: {}".format(error))
+            self.save_web_screenshot(doc_name)
+            raise
+
+    # 获取文本内值
+    def get_element_text(self, locator, doc_name="base"):
+        ele = self.get_element(locator, doc_name)
+        try:
+            text = ele.text
+
+            logging.info("获取元素的文本为：{}".format(text))
+            return text
+        except Exception as error:
+            logging.exception("获取文本失败: {}".format(error))
+            self.save_web_screenshot(doc_name)
+            raise
+
+    # 函数找元素
+    def get_element(self, locator, doc_name="base"):
+        logging.info("查找元素{}".format(doc_name))
+        try:
+            ele = self.driver.find_element(*locator)
+            return ele
+        except Exception as error:
+            # 日志
+            logging.exception("查找元素失败: {}".format(error))
+            # 截图
+            self.save_web_screenshot(doc_name)
+            raise
+
+    # 点击元素
+    def click_element(self, locator, doc_name="base"):
+        # 1、等待元素可见
+        self.wait_element_visible(locator, doc_name, timeout=10)
+        # 2、查找到元素
+        ele = self.get_element(locator, doc_name)
+        # 3、再点击元素
+        try:
+            ele.click()
+        except Exception as error:
+            logging.exception("元素点击失败: {}".format(error))
             self.save_web_screenshot(doc_name)
             raise

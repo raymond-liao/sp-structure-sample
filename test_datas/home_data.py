@@ -5,5 +5,4 @@ __author__ = 'raniys'
 
 
 class HomeData:
-    home_url = "https://www.python.org/"
-    search_text = "pycon"
+    home_url = "https://global-test-butter.bipocloud.com/tasks"

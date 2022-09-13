@@ -6,21 +6,22 @@ __author__ = 'raniys'
 import pytest
 from selenium.webdriver.common.keys import Keys
 
-from page_objects.home import HomePage
+from page_objects.login import LoginPage
 from test_cases.test_basic import WebBasicTest
-from test_datas.home_data import HomeData
+from test_datas.login_data import LoginData
 
 
 @pytest.mark.smoke
-class TestHome(WebBasicTest):
+class TestLogin(WebBasicTest):
     @pytest.fixture()
     def open_page(self):
-        self.driver.get(HomeData.home_url)
+        self.driver.get(LoginData.global_url)
         print(self.driver.title)
-        self.page = HomePage(self.driver)
+        self.page = LoginPage(self.driver)
 
     @pytest.mark.usefixtures("open_page")
-    def test_home(self):
+    def test_login(self):
         assert "Butter - Global Service" in self.driver.title
-        self.page.search()
+        self.page.deeplink()
+        self.page.login()
         assert "No results found." not in self.driver.page_source

@@ -7,5 +7,4 @@ from selenium.webdriver.common.by import By
 
 
 class HomePageLocators:
-    home_search_input_locator = (By.NAME, 'q')
     home_search_unknown_locator = (By.NAME, 'unknown')
