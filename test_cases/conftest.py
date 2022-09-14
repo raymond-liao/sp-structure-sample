@@ -5,15 +5,28 @@ __author__ = 'raniys'
 
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 
 
-# @pytest.fixture(params=["chrome", "firefox"], scope="class")
 @pytest.fixture(params=["chrome"], scope="class")
 def webdriver_init(request):
     if request.param == "chrome":
-        web_driver = webdriver.Chrome()
+        service = Service(executable_path="./chromedriver")
+        web_driver = webdriver.Chrome(service=service)
+
+        # chrome_options = webdriver.ChromeOptions()
+        # chrome_options.set_capability("browserVersion", "67")
+        # chrome_options.set_capability("platformName", "Windows XP")
+        # web_driver = webdriver.Remote(
+        #     command_executor="http://127.0.0.1:4444",
+        #     options=chrome_options
+        # )
+        # web_driver.get("https://www.baidu.com")
+        # print(web_driver.title)
+        # web_driver.quit()
     elif request.param == "firefox":
-        web_driver = webdriver.Firefox()
+        service = Service(executable_path="./geckodriver")
+        web_driver = webdriver.Firefox(service=service)
     else:
         raise ValueError("Unknowns browser for webdriver: ", request.param)
 

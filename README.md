@@ -19,6 +19,9 @@ and [pytest](https://docs.pytest.org/en/latest/)
 2. Install [pipenv](https://github.com/pypa/pipenv);
 3. Copy file `chromedriver` and `geckodriver` to `/usr/local/bin`;
 
+docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" selenium/standalone-firefox:4.4.0-20220831
+docker run -d -p 4444:4444 --shm-size="2g" selenium/standalone-chrome:4.4.0-20220831
+
 # Manual
 
 1. Enter the pipenv:
