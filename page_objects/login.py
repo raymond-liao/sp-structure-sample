@@ -27,3 +27,17 @@ class LoginPage(BasePage):
         self.wait_element_visible(LoginPageLocators.terms_service_a_locator)
         self.wait_element_visible(LoginPageLocators.privacy_policy_a_locator)
         self.wait_element_visible(LoginPageLocators.service_company_ltd_locator)
+
+        self.click_element(LoginPageLocators.sign_in_button_locator, '点击登录按钮')
+        self.wait_element_visible(LoginPageLocators.topbar_settings_locator)
+        self.click_element(LoginPageLocators.topbar_settings_locator)
+
+        self.wait_element_visible(LoginPageLocators.topbar_settings_signout_locator)
+        self.click_element(LoginPageLocators.topbar_settings_signout_locator)
+
+        self.wait_element_visible(LoginPageLocators.deeplink_page_title_locator)
+
+
+
+
+

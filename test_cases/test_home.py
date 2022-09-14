@@ -19,8 +19,3 @@ class TestHome(WebBasicTest):
         print(self.driver.title)
         self.page = HomePage(self.driver)
 
-    @pytest.mark.usefixtures("open_page")
-    def test_home(self):
-        assert "Butter - Global Service" in self.driver.title
-        self.page.search()
-        assert "No results found." not in self.driver.page_source

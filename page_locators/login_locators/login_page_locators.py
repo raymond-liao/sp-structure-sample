@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 
 class LoginPageLocators:
     deeplink_page_left_img_locator = (By.XPATH, '//div[@class="left"]')
-
+    deeplink_page_title_locator = (By.XPATH, '//h1[contains(text(),"Input your company code")]')
     deeplink_page_code_input_locator = (By.XPATH, '//label[@for="code"]//following-sibling::div//input')
     deeplink_next_button_locator = (By.XPATH, '//button//span[contains(text(),"Next")]')
     global_login_url_locator = (By.XPATH, '//h2[contains(text(),"global.butterglobe.com/BIPO")]')
@@ -23,3 +23,10 @@ class LoginPageLocators:
     privacy_policy_a_locator = (By.XPATH, '//a//span//em[contains(text(),"Privacy Policy")]')
 
     service_company_ltd_locator = (By.XPATH, '//div[@class="copyright"]')
+
+    topbar_settings_locator = (By.XPATH, '//div[@class="icon-wrapper"]//div[@class="el-badge item"][2]')
+
+    topbar_settings_signout_locator = (By.XPATH, '//li[contains(text(),"Sign out")]')
+
+
+
