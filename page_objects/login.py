@@ -13,10 +13,10 @@ class LoginPage(BasePage):
         doc_name = "global_deeplink"
         self.wait_element_visible(LoginPageLocators.deeplink_page_left_img_locator)
 
-        self.input_text(LoginPageLocators.deeplink_page_code_input_locator, doc_name, LoginData.company_code)
+        self.input_text(LoginPageLocators.deeplink_page_code_input_locator, '输入 Company Code', LoginData.company_code)
         self.wait_element_visible(LoginPageLocators.deeplink_next_button_locator)
         self.click_element(LoginPageLocators.deeplink_next_button_locator, '点击下一步按钮')
-        self.wait_element_visible(LoginPageLocators.global_login_url_locator)
+        self.wait_element_visible(LoginPageLocators.global_login_url_locator, '跳转登录')
 
     def login(self):
         doc_name = "global_login"
